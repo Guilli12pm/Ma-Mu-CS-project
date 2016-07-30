@@ -1,8 +1,8 @@
 <?php
 $row = 1;
-if (($handle = fopen($argv[1], "r")) !== FALSE)
+if(($handle = fopen($argv[1], "r")) !== FALSE)
 {
-	while (($data = fgetcsv($handle, 1000, ",")) !== FALSE)
+	while(($data = fgetcsv($handle, 1000, ",")) !== FALSE)
 	{
 		$track = $data[0];
 		$code = $data[2];
@@ -27,5 +27,4 @@ if (($handle = fopen($argv[1], "r")) !== FALSE)
 	}
 	fclose($handle);
 }
-
 ?>

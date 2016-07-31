@@ -6,3 +6,6 @@ http://www.recordingblogs.com/sa/tabid/88/Default.aspx?topic=MIDI+Key+Signature+
 
 #Midi Notes reference
 http://www.electronics.dit.ie/staff/tscarff/Music_technology/midi/midi_note_numbers_for_octaves.htm
+
+#Notes duration
+http://www.musictheory.net/lessons/11

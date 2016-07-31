@@ -1,19 +1,20 @@
 <?php
-$scale[7] = ['Do b','Re b','Mi b','Fa b','Sol b','La b','Si b'];
-$scale[6] = ['Do b','Re b','Mi b ','Fa','Sol b','La b','Si b'];
-$scale[5] = ['Do','Re b','Mi b','Fa','Sol b','La b','Si b'];
-$scale[4] = ['Do','Re b','Mi b','Fa','Sol','La b','Si b'];
-$scale[3] = ['Do','Re','Mi b','Fa','Sol','La b','Si b'];
-$scale[2] = ['Do','Re','Mi b','Fa','Sol','La','Si b'];
-$scale[1] = ['Do','Re','Mi','Fa','Sol','La','Si b'];
-$scale[0] = ['Do','Re','Mi','Fa','Sol','La','Si'];
-$scale[-1] = ['Do','Re','Mi','Fa #','Sol','La','Si'];
-$scale[-2] = ['Do #','Re','Mi','Fa #','Sol','La','Si'];
-$scale[-3] = ['Do #','Re','Mi','Fa #','Sol #','La','Si'];
-$scale[-4] = ['Do #','Re #','Mi','Fa #','Sol #','La','Si'];
-$scale[-5] = ['Do #','Re #','Mi','Fa #','Sol #','La #','Si'];
-$scale[-6] = ['Do #','Re #','Mi #','Fa #','Sol #','La #','Si'];
-$scale[-7] = ['Do #','Re #','Mi #','Fa #','Sol #','La #','Si #'];
+//Do Re Mi Fa Sol La Si Do
+$scale[7] = [-1,-1,-1,-1,-1,-1,-1];
+$scale[6] = [-1,-1,-1,0,-1,-1,-1];
+$scale[5] = [0,-1,-1,0,-1,-1,-1];
+$scale[4] = [0,-1,-1,0,0,-1,-1];
+$scale[3] = [0,0,-1,0,0,-1,-1];
+$scale[2] = [0,0,-1,0,0,0,-1];
+$scale[1] = [0,0,0,0,0,0,-1];
+$scale[0] = [0,0,0,0,0,0,0];
+$scale[-1] = [0,0,0,1,0,0,0];
+$scale[-2] = [1,0,0,1,0,0,0];
+$scale[-3] = [1,0,0,1,1,0,0];
+$scale[-4] = [1,1,0,1,1,0,0];
+$scale[-5] = [1,1,0,1,1,1,0];
+$scale[-6] = [1,1,1,1,1,1,0];
+$scale[-7] = [1,1,1,1,1,1,1];
 
 $notes[0] = ['octave' => 1,'note' => 'Do'];
 $notes[1] = ['octave' => 1,'note' => 'Do #'];

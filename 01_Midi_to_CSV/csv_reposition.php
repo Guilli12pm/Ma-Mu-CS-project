@@ -77,6 +77,7 @@ foreach(glob("*.csv") as $file_name)
 					}
 					$note = $notes[$note];
 					$octave = $note["octave"];
+					$frequency = $note["frequency"];
 					$note = $note["note"];
 					$velocity = round(trim($data[5]) / 127 * 100);
 					if($previous_row[$track]["row"])
@@ -160,6 +161,7 @@ foreach(glob("*.csv") as $file_name)
 				"beat" => $beat,
 				"octave" => $octave,
 				"note" => $note,
+				"frequency" => $frequency,
 				"duration" => "",
 				"force" => $velocity];
 			$row++;
@@ -168,7 +170,7 @@ foreach(glob("*.csv") as $file_name)
 
 		if($write_handle = fopen("../$target_directory/$file_name", 'w'))
 		{
-			fputcsv($write_handle, ["Time","Track","Instrument","Beat","Octave","Note","Duration","Force (%)"]);
+			fputcsv($write_handle, ["Time","Track","Instrument","Beat","Octave","Note","Frequency","Duration","Force (%)"]);
 			ksort($output);
 			foreach($output as $row)
 			{

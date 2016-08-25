@@ -1,0 +1,384 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.4' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     13810,        376]
+NotebookOptionsPosition[     13442,        358]
+NotebookOutlinePosition[     13797,        374]
+CellTagsIndexPosition[     13754,        371]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"d", "[", "1", "]"}], "=", "\"\<X\>\""}], ";", 
+    RowBox[{
+     RowBox[{"d", "[", "n_", "]"}], ":=", " ", 
+     RowBox[{
+      RowBox[{"d", "[", "n", "]"}], " ", "=", 
+      RowBox[{"StringReplace", "[", 
+       RowBox[{
+        RowBox[{"d", "[", 
+         RowBox[{"n", "-", "1"}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{
+          "\"\<X\>\"", "->", "\"\<F\[Minus][[X]+X]+F[+FX]\[Minus]X\>\""}], 
+          ",", 
+          RowBox[{"\"\<F\>\"", "->", "\"\<FF\>\""}]}], "}"}]}], "]"}]}]}], 
+    ";", "\n", 
+    RowBox[{"stack", " ", "=", " ", 
+     RowBox[{"{", "}"}]}], ";", "\n", 
+    RowBox[{"start", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", "}"}], ",", 
+       RowBox[{"{", "}"}]}], "}"}]}], ";", "\n", 
+    RowBox[{
+     RowBox[{"new", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"pos_", ",", "dir_", ",", "stack_", ",", "lines_"}], "}"}], 
+       ",", "\"\<F\>\""}], "]"}], ":=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"pos", "+", "dir"}], ",", "dir", ",", "stack", ",", 
+       RowBox[{"Append", "[", 
+        RowBox[{"lines", ",", 
+         RowBox[{"{", 
+          RowBox[{"pos", ",", 
+           RowBox[{"pos", "+", "dir"}]}], "}"}]}], "]"}]}], "}"}]}], ";", 
+    "\n", 
+    RowBox[{
+     RowBox[{"new", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"pos_", ",", 
+         RowBox[{"{", 
+          RowBox[{"a_", ",", "b_"}], "}"}], ",", "stack_", ",", "lines_"}], 
+        "}"}], ",", "\"\<+\>\""}], "]"}], ":=", 
+     RowBox[{"{", 
+      RowBox[{"pos", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"+", "a"}], " ", 
+           RowBox[{"Cos", "[", 
+            RowBox[{"angle", " ", "Degree"}], "]"}]}], "-", 
+          RowBox[{"b", " ", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"angle", " ", "Degree"}], "]"}]}]}], ",", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"+", "a"}], " ", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"angle", " ", "Degree"}], "]"}]}], "+", 
+          RowBox[{"b", " ", 
+           RowBox[{"Cos", "[", 
+            RowBox[{"angle", " ", "Degree"}], "]"}]}]}]}], "}"}], ",", 
+       "stack", ",", "lines"}], "}"}]}], ";", "\n", 
+    RowBox[{
+     RowBox[{"new", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"pos_", ",", 
+         RowBox[{"{", 
+          RowBox[{"a_", ",", "b_"}], "}"}], ",", "stack_", ",", "lines_"}], 
+        "}"}], ",", "\"\<\[Minus]\>\""}], "]"}], ":=", 
+     RowBox[{"{", 
+      RowBox[{"pos", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"+", "a"}], " ", 
+           RowBox[{"Cos", "[", 
+            RowBox[{"angle", " ", "Degree"}], "]"}]}], "+", 
+          RowBox[{"b", " ", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"angle", " ", "Degree"}], "]"}]}]}], ",", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "a"}], " ", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"angle", " ", "Degree"}], "]"}]}], "+", 
+          RowBox[{"b", " ", 
+           RowBox[{"Cos", "[", 
+            RowBox[{"angle", " ", "Degree"}], "]"}]}]}]}], "}"}], ",", 
+       "stack", ",", "lines"}], "}"}]}], ";", "\n", 
+    RowBox[{
+     RowBox[{"new", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"pos_", ",", "dir_", ",", "stack_", ",", "lines_"}], "}"}], 
+       ",", "\"\<[\>\""}], "]"}], ":=", 
+     RowBox[{"{", 
+      RowBox[{"pos", ",", " ", "dir", ",", 
+       RowBox[{"Append", "[", 
+        RowBox[{"stack", ",", 
+         RowBox[{"{", 
+          RowBox[{"pos", ",", " ", "dir"}], "}"}]}], "]"}], ",", "lines"}], 
+      "}"}]}], ";", "\n", 
+    RowBox[{
+     RowBox[{"new", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"pos_", ",", "dir_", ",", "stack_", ",", "lines_"}], "}"}], 
+       ",", "\"\<]\>\""}], "]"}], " ", ":=", " ", 
+     RowBox[{"start", "=", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Last", "[", "stack", "]"}], "[", 
+         RowBox[{"[", "1", "]"}], "]"}], ",", 
+        RowBox[{
+         RowBox[{"Last", "[", "stack", "]"}], "[", 
+         RowBox[{"[", "2", "]"}], "]"}], ",", 
+        RowBox[{"Most", "[", "stack", "]"}], ",", "lines"}], "}"}]}]}], ";", 
+    "\n", 
+    RowBox[{
+     RowBox[{"new", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"pos_", ",", "dir_", ",", "stack_", ",", "lines_"}], "}"}], 
+       ",", "\"\<X\>\""}], "]"}], ":=", 
+     RowBox[{"{", 
+      RowBox[{"pos", ",", "dir", ",", "stack", ",", "lines"}], "}"}]}], ";", 
+    "\n", 
+    RowBox[{
+     RowBox[{"path", "[", "list_", "]"}], ":=", 
+     RowBox[{"FoldList", "[", 
+      RowBox[{"new", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "1"}], "}"}], ",", 
+         RowBox[{"{", "}"}]}], "}"}], ",", "list"}], "]"}]}], ";", 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"Graphics", "[", 
+     RowBox[{"Line", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"FoldList", "[", 
+         RowBox[{"new", ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", "1"}], "}"}], ",", 
+            RowBox[{"{", "}"}], ",", 
+            RowBox[{"{", "}"}]}], "}"}], ",", 
+          RowBox[{"Characters", "[", 
+           RowBox[{"d", "[", "n", "]"}], "]"}]}], "]"}], "[", 
+        RowBox[{"[", 
+         RowBox[{"-", "1"}], "]"}], "]"}], "[", 
+       RowBox[{"[", "4", "]"}], "]"}], "]"}], "]"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"n", ",", "1", ",", "8", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"angle", ",", "15", ",", " ", "35", ",", " ", "10"}], "}"}]}], 
+  " ", "]"}]], "Input",
+ CellChangeTimes->{{3.6791337512337313`*^9, 3.67913375528463*^9}, {
+   3.679133809032242*^9, 3.679133838778789*^9}, {3.679133918319849*^9, 
+   3.679133927206641*^9}, 3.679134053649716*^9, 3.679134122127315*^9, {
+   3.6791343104409513`*^9, 3.679134310919553*^9}, {3.679134510771175*^9, 
+   3.679134512395733*^9}, {3.6791348547036753`*^9, 3.679134942997134*^9}, {
+   3.679135155389316*^9, 3.6791351620390863`*^9}, {3.679135233237027*^9, 
+   3.679135237499096*^9}, {3.679135293009966*^9, 3.679135333605468*^9}, {
+   3.679135461015376*^9, 3.679135474815*^9}, {3.679222540064176*^9, 
+   3.679222542487309*^9}, {3.679222578764037*^9, 3.679222585984824*^9}, {
+   3.679222634167039*^9, 3.679222672538205*^9}, {3.6793066893317204`*^9, 
+   3.679306855802971*^9}, {3.6793068925843143`*^9, 3.679306913012541*^9}, {
+   3.679307066566392*^9, 3.67930708259825*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`angle$$ = 15, $CellContext`n$$ = 5, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`n$$], 1, 8, 1}, {
+      Hold[$CellContext`angle$$], 15, 35, 10}}, Typeset`size$$ = {
+    190., {214., 218.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`n$334$$ = 
+    0, $CellContext`angle$339$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`angle$$ = 15, $CellContext`n$$ = 1}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`n$$, $CellContext`n$334$$, 0], 
+        Hold[$CellContext`angle$$, $CellContext`angle$339$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> ($CellContext`d[1] = "X"; $CellContext`d[
+          Pattern[$CellContext`n, 
+           Blank[]]] := ($CellContext`d[$CellContext`n] = StringReplace[
+           $CellContext`d[$CellContext`n - 1], {
+           "X" -> "F\[Minus][[X]+X]+F[+FX]\[Minus]X", "F" -> 
+            "FF"}]); $CellContext`stack = {}; $CellContext`start = {{0, 0}, {
+          0, 1}, {}, {}}; $CellContext`new[{
+           Pattern[$CellContext`pos, 
+            Blank[]], 
+           Pattern[$CellContext`dir, 
+            Blank[]], 
+           Pattern[$CellContext`stack, 
+            Blank[]], 
+           Pattern[$CellContext`lines, 
+            Blank[]]}, 
+          "F"] := {$CellContext`pos + $CellContext`dir, $CellContext`dir, \
+$CellContext`stack, 
+          
+          Append[$CellContext`lines, {$CellContext`pos, $CellContext`pos + \
+$CellContext`dir}]}; $CellContext`new[{
+           Pattern[$CellContext`pos$, 
+            Blank[]], {
+            Pattern[$CellContext`a$, 
+             Blank[]], 
+            Pattern[$CellContext`b$, 
+             Blank[]]}, 
+           Pattern[$CellContext`stack$, 
+            Blank[]], 
+           Pattern[$CellContext`lines$, 
+            Blank[]]}, "+"] := {$CellContext`pos$, {
+          Plus[$CellContext`a$] 
+            Cos[$CellContext`angle$$ Degree] - $CellContext`b$ 
+           Sin[$CellContext`angle$$ Degree], 
+           Plus[$CellContext`a$] 
+            Sin[$CellContext`angle$$ Degree] + $CellContext`b$ 
+            Cos[$CellContext`angle$$ 
+              Degree]}, $CellContext`stack$, $CellContext`lines$}; \
+$CellContext`new[{
+           Pattern[$CellContext`pos$, 
+            Blank[]], {
+            Pattern[$CellContext`a$, 
+             Blank[]], 
+            Pattern[$CellContext`b$, 
+             Blank[]]}, 
+           Pattern[$CellContext`stack$, 
+            Blank[]], 
+           Pattern[$CellContext`lines$, 
+            Blank[]]}, "\[Minus]"] := {$CellContext`pos$, {
+          Plus[$CellContext`a$] 
+            Cos[$CellContext`angle$$ Degree] + $CellContext`b$ 
+            Sin[$CellContext`angle$$ Degree], (-$CellContext`a$) 
+            Sin[$CellContext`angle$$ Degree] + $CellContext`b$ 
+            Cos[$CellContext`angle$$ 
+              Degree]}, $CellContext`stack$, $CellContext`lines$}; \
+$CellContext`new[{
+           Pattern[$CellContext`pos, 
+            Blank[]], 
+           Pattern[$CellContext`dir, 
+            Blank[]], 
+           Pattern[$CellContext`stack, 
+            Blank[]], 
+           Pattern[$CellContext`lines, 
+            Blank[]]}, "["] := {$CellContext`pos, $CellContext`dir, 
+          
+          Append[$CellContext`stack, {$CellContext`pos, $CellContext`dir}], \
+$CellContext`lines}; $CellContext`new[{
+           Pattern[$CellContext`pos, 
+            Blank[]], 
+           Pattern[$CellContext`dir, 
+            Blank[]], 
+           Pattern[$CellContext`stack, 
+            Blank[]], 
+           Pattern[$CellContext`lines, 
+            Blank[]]}, "]"] := ($CellContext`start = {
+           Part[
+            Last[$CellContext`stack], 1], 
+           Part[
+            Last[$CellContext`stack], 2], 
+           Most[$CellContext`stack], $CellContext`lines}); $CellContext`new[{
+           Pattern[$CellContext`pos, 
+            Blank[]], 
+           Pattern[$CellContext`dir, 
+            Blank[]], 
+           Pattern[$CellContext`stack, 
+            Blank[]], 
+           Pattern[$CellContext`lines, 
+            Blank[]]}, 
+          "X"] := {$CellContext`pos, $CellContext`dir, $CellContext`stack, \
+$CellContext`lines}; $CellContext`path[
+          Pattern[$CellContext`list, 
+           Blank[]]] := 
+        FoldList[$CellContext`new, {{0, 0}, {0, 1}, {}}, $CellContext`list]; 
+       Graphics[
+         Line[
+          Part[
+           Part[
+            FoldList[$CellContext`new, {{0, 0}, {0, 1}, {}, {}}, 
+             Characters[
+              $CellContext`d[$CellContext`n$$]]], -1], 4]]]), 
+      "Specifications" :> {{$CellContext`n$$, 1, 8, 1}, {$CellContext`angle$$,
+          15, 35, 10}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{265., {285., 290.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.679306815774355*^9, 3.679306867656685*^9, 
+  3.679306917425009*^9, 3.679306984123517*^9, 3.679307087305563*^9, 
+  3.6793071374368343`*^9, 3.679921393088379*^9}]
+}, Open  ]],
+
+Cell[BoxData["s"], "Input",
+ CellChangeTimes->{3.679921484421904*^9}]
+},
+WindowSize->{813, 732},
+WindowMargins->{{110, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.4 for Mac OS X x86 (32-bit, 64-bit Kernel) (April 11, \
+2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 6944, 191, 369, "Input"],
+Cell[7527, 215, 5827, 137, 592, "Output"]
+}, Open  ]],
+Cell[13369, 355, 69, 1, 28, "Input"]
+}
+]
+*)
+
